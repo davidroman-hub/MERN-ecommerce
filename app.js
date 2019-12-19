@@ -26,7 +26,7 @@ mongoose
 
 //Routes middleware
 
-app.use('/api',userRoutes);
+app.use('/api', userRoutes);
 
 const port = process.env.PORT || 8000
 
