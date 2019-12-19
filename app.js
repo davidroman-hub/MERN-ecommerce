@@ -1,5 +1,9 @@
 const express = require('express');
 const mongoose = require('mongoose')
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
+
 require('dotenv').config();
 
 //import routes
@@ -23,6 +27,12 @@ mongoose
 // app.get('/', (req,res)=>{
 //     res.send('hello from node mutha fucka updates with nodemon');
 // });
+
+//middlewares
+
+app.use(morgan('dev'))
+app.use(bodyParser.json())
+app.use(cookieParser())
 
 //Routes middleware
 
