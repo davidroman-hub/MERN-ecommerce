@@ -13,6 +13,8 @@ const userRoutes = require('./routes/user')
 const app = express()
 
 //db
+
+//DATABASE=mongodb+srv://david_roman:sandra1@ecommerce-u97it.mongodb.net/test?retryWrites=true&w=majority
 mongoose
     .connect(process.env.DATABASE, {
         useNewUrlParser: true,
