@@ -59,6 +59,13 @@ exports.signout = (req, res) => {
     });
 } 
 
+//requireSigin below
+
+exports.requireSignin = expressJwt({
+    secret: process.env.JWT_SECRET,
+    userProperty:'auth'
+});
+
 
 
 
