@@ -25,6 +25,21 @@ const productSchema = new mongoose.Schema(
             ref:'Category',// this is the name of the category name ;)
             required:true
         },
+        quantity: {
+            type: Number
+        },
+        sold: {
+            type: Number,
+            default: 0
+        },
+        photo: {
+            data: Buffer,
+            contentType: String
+        },
+        shipping: {
+            required: false,
+            type: Boolean
+        }
     },
     {timestamps:true}
 );

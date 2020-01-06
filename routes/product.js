@@ -16,9 +16,4 @@ router.post(
     );
 
 router.param("userId", userById)
-
-// router.get('/hello', requireSignin, (req,res) => {
-//         res.send('hello there'); // <==== for only test
-// })
-
 module.exports = router;

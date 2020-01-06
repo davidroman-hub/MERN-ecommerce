@@ -4,7 +4,7 @@ const fs = require('fs')
 const Product = require('../models/product');
 const { errorHandler } = require('../helpers/dbErrorHandle')
 
-exports.create = (req,res) => {
+exports.create = (req, res) => {
 
     let form = new formidable.IncomingForm()
     form.keepExtensions = true

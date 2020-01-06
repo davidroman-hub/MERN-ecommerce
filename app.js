@@ -46,8 +46,8 @@ app.use(expressValidator());
 
 app.use('/api', authRoutes);
 app.use('/api', userRoutes);
-app.use('/api',categoryRoutes);
-app.use('/api',productRoutes);
+app.use('/api', categoryRoutes);
+app.use('/api', productRoutes);
 
 const port = process.env.PORT || 8000
 
