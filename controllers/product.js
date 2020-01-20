@@ -151,6 +151,7 @@ exports.create = (req, res) => {
     // Sell / Arrival //
     
 // we want to return the product  by sell = /products?sortyBy=sold&order=desc&limit=4
+//products?sortyBy=createAt&order=asc&limit=2
 
 //by arrival = /products?sortyBy=createAt&order=desc&limit=4
 //if no params are sent  , then all products are returned 
@@ -182,3 +183,29 @@ exports.list = (req, res) => {
 /*
 if we want to know only the products list remember its onli with this : http://localhost:8000/api/products
 */
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/**
+ * it will find the products based req producte category
+ * other products that has the same category, will be returned
+ * 
+ */
+
+
+exports.listRelated =(req, res) => {
+    let limit = req.query.limit ? parseInt(req.query.limit):6 ;
+//we need to create a method to find the related categories  from the product so,
+//if we gonna use a product to find the related products we can't  use the same product.(not including it self)
+    Product.find({_id:{$ne:req.product}, category:req.product.category})
+    .limit(limit)
+    .populate('category', '_id name')
+    .exec((err, products) =>{
+        if(err) {
+            return res.status(400).json({
+                error:" Products not found"
+            });
+        }
+        res.json(products);
+    } )
+}
