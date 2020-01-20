@@ -146,3 +146,36 @@ exports.create = (req, res) => {
               });
     
             };
+
+
+    // Sell / Arrival //
+    
+// we want to return the product  by sell = /products? sortyBy=sold&order=desc&limit=4
+
+//by arrival = /products?sortyBy=createAt&order=desc&limit=4
+//if no params are sent  , then all products are returned 
+
+
+exports.list = (req, res) => {
+    let order = req.query.order ? req.query.order : 'asc'
+    let sortBy = req.query.By ? req.query.By : 'asc'
+    let limit = req.query.limit ? req.query.limit : 6
+
+
+    Product.find()
+    .select("-photo")
+    .populate('category')
+    .sort([[sortBy, order]])
+    .limit(limit)
+    .exec((err, products) => {
+        if(err){
+            return res.statu(400).json({
+                error: 'Product not foud'
+            })
+        }
+        res.send(products)
+    });
+
+}
+
+    
