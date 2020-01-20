@@ -237,9 +237,6 @@ exports.listCategories = (req, res) => {
  * we will make api request and show the products to users based on what he wants
  */
 
-
-
-
 exports.listBySearch = (req, res) => {
     let order = req.body.order ? req.body.order : "desc";
     let sortBy = req.body.sortBy ? req.body.sortBy : "_id";
@@ -283,3 +280,18 @@ exports.listBySearch = (req, res) => {
             });
         });
 };
+
+//////////////////////////////////////////////////
+
+//for visualizing use a web-browser http://localhost:8000/api/product/photo/5e25d6f4159d2428ec504517
+
+exports.photo = (req, res, next) => {
+    if (req.product.photo.data){
+        res.set('Content-Type', req.product.photo.contentType)
+        return res.send(req.product.photo.data)
+    }
+    next()
+}
+
+
+
