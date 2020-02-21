@@ -13,7 +13,7 @@ router.get('/braintree/getToken/:userId',
             isAuth,
             generateToken )
 
-router.get('/braintree/payment/:userId',
+router.post('/braintree/payment/:userId',
             requireSignin,
             isAuth,
             processPayment )
