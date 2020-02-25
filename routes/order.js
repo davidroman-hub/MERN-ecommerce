@@ -5,16 +5,17 @@ const router = express.Router();
 const {requireSignin, isAuth} = require('../controllers/auth')
 //also we gonna use user controllers as well
 const { userById, addOrderToUserHistory } = require('../controllers/user')
-
 const { create } = require('../controllers/order')
+const { decreaseQuantity } = require("../controllers/product")
 
 
 router.post(
     "/order/create/:userId",
-    addOrderToUserHistory,
-    create,
     requireSignin,
     isAuth,
+    addOrderToUserHistory,
+    decreaseQuantity,
+    create,
     )
 
 
