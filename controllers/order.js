@@ -1,6 +1,7 @@
 const { Order, CartItem } = require('../models/order')
 const { errorHandler } = require('../helpers/dbErrorHandle')
 
+// create order method
 
 exports.create =(req, res) => {
      console.log('CREATE ORDER: ', req.body);
@@ -15,4 +16,20 @@ exports.create =(req, res) => {
         res.json(data)
     })
 
+}
+
+//List orders to the front-end
+
+exports.listOrders = (req, res) => {
+    Order.find()
+    .populate('user',_id, name, address)
+    .sort('-created')
+    .exec((err,orders)=>{
+        if(err){
+            return res.status(400).json({
+                error:errorHandler(error)
+            });
+        }
+        res.json(orders)
+    })
 }
