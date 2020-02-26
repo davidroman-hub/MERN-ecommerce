@@ -34,3 +34,9 @@ exports.listOrders = (req, res) => {
     })
 }
 
+
+// enum status values method
+
+exports.getStatusValues = (req, res) => {
+    res.json(Order.schema.path('status').enumValues)
+}
