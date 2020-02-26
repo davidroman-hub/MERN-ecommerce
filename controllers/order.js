@@ -22,7 +22,7 @@ exports.create =(req, res) => {
 
 exports.listOrders = (req, res) => {
     Order.find()
-    .populate('user',_id, name, address)
+    .populate('user','_id name address')
     .sort('-created')
     .exec((err,orders)=>{
         if(err){
@@ -33,3 +33,4 @@ exports.listOrders = (req, res) => {
         res.json(orders)
     })
 }
+
