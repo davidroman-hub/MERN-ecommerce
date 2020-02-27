@@ -29,6 +29,10 @@ const userSchema = new mongoose.Schema(
             type: Number,
             default: 0
         },
+        // resetPasswordLink:{
+        //     data: String,
+        //     default:''
+        // },
         history: {
             type: Array,
             default: []

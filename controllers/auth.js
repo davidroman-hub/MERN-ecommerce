@@ -88,8 +88,14 @@ exports.isAdmin = (req, res, next) => {
 
 
 
+//forgotPassword,resetPassword 
 
+// exports.forgotPassword = (req,res) => {
+// //
+// }
 
-
+// exports.resetPassword = (req,res) => {
+// //
+// }
 
 
