@@ -58,7 +58,9 @@ exports.update = (req, res) => {
             category: item.category,
             quantity: item.count,
             transaction_id: req.body.order.transaction_id,
-            amount: req.body.order.amount
+            amount: req.body.order.amount,
+            // createdAt: req.body.order.createdAt
+
         });
     });
 

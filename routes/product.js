@@ -22,8 +22,11 @@ const { create,
 const {requireSignin, isAuth, isAdmin} = require('../controllers/auth');
 const { userById } = require('../controllers/user');
 
+// read one product
+
 router.get('/product/:productId', read)
 
+// create a product
 router.post(
     
     '/product/create/:userId',
@@ -33,6 +36,8 @@ router.post(
     create 
     
     );
+
+    /// delete a product
 router.delete(
     
     '/product/:productId/:userId',
@@ -41,6 +46,8 @@ router.delete(
     isAuth,
     remove 
     );
+
+//update a product
 
 router.put(
     
@@ -51,11 +58,13 @@ router.put(
         update 
         );
 
-
+/// get al the products
 router.get('/products', list);
 
-router.get('/products/search', listSearch);
 
+// search the products
+
+router.get('/products/search', listSearch);
 router.get('/products/related/:productId', listRelated);
 router.get('/products/categories', listCategories);
 router.post("/products/by/search", listBySearch);
